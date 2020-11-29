@@ -1,0 +1,10 @@
+//Instruction MULT varnum: product between TOS and N
+
+mul1   OPC = MBR   //metto mbr in opc per salvarlo
+mul2   MAR = SP    //aggiorno mar con la cima
+mul3   MDR = 0     //aggiorno mdr con 0 per usarlo nella somma ciclo
+mul4   MDR = MDR + TOS       //aggiorno mdr con la somma tra lui e la cima
+mul5   OPC = OPC - 1       //aggiorno opc diminuendolo di 1, perchè opc è varnum
+mul6   Z = OPC; if(Z) goto savemul; else goto mul4      //pongo z con opc e se è 0 allora ho finito, se no ricomincio
+
+savemul wr;goto Main1   
