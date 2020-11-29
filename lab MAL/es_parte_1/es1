@@ -1,5 +1,5 @@
-//Instruction DUPAQUARTER: set in top of stack the current value on the top divided by 4
+//Instruction DUPAQUARTER:  mette in cima il valore corrente in cima diviso per 4
 
-MAR = SP = SP + 1
-TOS = TOS >> 1
-MDR = TOS = TOS >> 1; wr; goto Main1
+MAR = SP = SP + 1     //creo spazio in cima
+TOS = TOS >> 1      //divido la cima per 2
+MDR = TOS = TOS >> 1; wr; goto Main1      //aggiorno il valore di mdr e tos con la divisione di tos per 2, lo scrivo e ritorno al main
