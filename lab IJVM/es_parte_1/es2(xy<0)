@@ -25,15 +25,18 @@ objref  0xCAFE  // may be any value.  Needed by invokevirtual.
 .var
 .end-var
 
-iload x			//controllo se x<0
-iflt go_y
-goto false
-go_y:	iload y			//controllo se y<0
-iflt true
-goto false
-true:	bipush 1
-goto end
-false:bipush 0
-end:ireturn
+		iload x			//controllo se x<0
+		iflt go_y
+		goto false
+	go_y:	iload y			//controllo se y<0
+		iflt true
+		goto false
+	
+	true:	bipush 1
+		goto end
+	
+	false:bipush 0
+	
+	end:ireturn
 
 .end-method
