@@ -1,0 +1,6 @@
+//Istruzione SUMC1TOS: somma la cima dello stack con la prima costante
+
+MAR = CPP; rd       //cpp contiene indirizzi prima parola della porzione di memoria, la leggo e agggiorno mar
+SP = MAR = SP + 1     //aggiorno mar e sp
+H = MDR       //metto il valore di mar in h
+MDR = TOS = H + TOS; wr; goto Main1       //aggiorno mdr e tos con la somma tra h e la tos, lo scrivo e ritorno al main
