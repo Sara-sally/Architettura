@@ -1,0 +1,39 @@
+.constant
+objref  0xCAFE  // may be any value.  Needed by invokevirtual.
+.end-constant
+
+.main
+	.var
+	x
+	y
+	flag
+	.end-var
+
+	bipush -1
+	istore x
+	bipush 1
+	istore y
+	iload x
+	iload y
+	invokevirtual both_lt
+	istore flag
+	iload flag 
+	halt
+.end-main
+
+.method
+.var
+.end-var
+
+iload x			//controllo se x<0
+iflt go_y
+goto false
+go_y:	iload y			//controllo se y<0
+iflt true
+goto false
+true:	bipush 1
+goto end
+false:bipush 0
+end:ireturn
+
+.end-method
