@@ -1,0 +1,16 @@
+//istruction IDIV: divisione tra le 2 parole in cima
+
+idiv1 MAR = SP = SP - 1; rd     //leggo la seconda parola dalla cima
+idiv2 Z = TOS - 1; if(Z) goto idiv3; else goto idiv4     //il secondo valore è positivo o nullo 0
+idiv3 OPC = MDR; goto end     //se tos-1 è 0, allora aggiorno opc con il valore presente in mdr e vado in end
+idiv4 H = TOS     //altrimenti aggiorno h con la cima
+idiv5 Z = MDR; if(Z) goto end; else goto check    //il valore in cima è stretamente positivo
+
+check   N = MDR - H; if(N) goto end; else goto div //eseguo mdr-h, ovvero valore in seconda posizione -cima, se negativo allora end , se no ciclo
+
+div     MDR = MDR - H     //aggiorno mdr sottraendo h
+div2    OPC = OPC + 1     //aggiorno opc, risultato divisione
+div3    goto check        //ritorno alla condizione ciclo
+
+
+end    TOS = OPC; wr; goto Main1    //aggiorno la cima con il risultato della divisione, lo scrivo e ritorno in cima
