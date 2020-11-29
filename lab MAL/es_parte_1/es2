@@ -1,7 +1,7 @@
 //Instruction SUBOP byte: differenza tra il top dello stack e il parametro
 
-MAR = SP
-H = MBR
-H = -H
-PC = PC + 1; fetch
-MDR = TOS = TOS + H; wr; goto Main1
+MAR = SP      //metto in mbr il valore presente in top
+H = MBR     //pongo h uguale a mbr, ovvero il val letto in mdr
+H = -H      //aggiorno h con il suo opposto
+PC = PC + 1; fetch    //aggiorno pc ed eseguo la fetch
+MDR = TOS = TOS + H; wr; goto Main1     //aggiorno tos e mdr con la somma tra tos e h, ovvero la differenza, lo scrivo e ritorno al main
