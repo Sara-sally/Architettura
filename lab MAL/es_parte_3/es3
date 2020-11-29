@@ -1,0 +1,12 @@
+//istruction IMOD: resto tra le due variabili in cima allo stack
+
+imod1 MAR = SP = SP - 1; rd
+imod2 Z = TOS - 1; if(Z) goto imod8; else goto imod4
+imod3 OPC = MDR; goto imod8
+imod4 H = TOS
+imod5 Z = MDR; if(Z) goto imod8; else goto imod6          //fino a qua come divisione, controllo di numeratore e divisore
+
+imod6 N = MDR - H; if(Z) goto imod8; else goto imod7      //ciclo consinua se secondo valore-cima è non negativo
+imod7 MDR = MDR - H; goto idiv3                           //aggiorno il resto
+
+imod8 TOS = MDR; wr; goto Main1
