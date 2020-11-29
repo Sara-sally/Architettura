@@ -1,0 +1,42 @@
+.constant
+objref  oxCAFE // may be any value.  Needed by invokevirtual.
+.end-constant
+
+.main
+  .var
+  x
+  y
+  result
+  .end-var
+  
+  bipush 13
+  istore x
+  bipush 5
+  istore y
+  iload x
+  iload y
+  invokevirtual restoint
+  istore result
+  iload result 
+  halt 
+.end-main
+
+.method restoint(x,y)
+  .var
+  .end-var
+  
+  loop: iload x       //verifica x<y, se vero esce dal ciclo
+        iload y
+        isub
+        iflt end
+        
+        iload x
+        iload y
+        isub
+        istore x
+        goto loop
+        
+  end:  iload x
+        ireturn
+        
+.end-method
