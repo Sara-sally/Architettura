@@ -23,6 +23,7 @@ objref  0xCAFE // may be any value.  Needed by invokevirtual.
   invokevirtual AO
   istore result
   iload result
+  halt
 .end-main
 
 .method AO(x,y,z)
