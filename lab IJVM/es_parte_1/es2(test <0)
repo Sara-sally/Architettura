@@ -39,5 +39,5 @@ objref  0xCAFE  // may be any value.  Needed by invokevirtual.
 	false:	bipush 0
 	
 	end:		ireturn
-
+ 
 .end-method
