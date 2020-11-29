@@ -1,1 +1,48 @@
+.constant
+objref  0xCAFE // may be any value.  Needed by invokevirtual.
+.end-constant
 
+.main
+  .var
+  x
+  y
+  z
+  result
+  .end-var
+  
+  bipush 1
+  istore x
+  bipush 1
+  istore y
+  bipush 1 
+  istore z
+  LDC_W objref
+  iload x
+  iload y
+  iload z
+  invokevirtual AO
+  istore result
+  iload result
+.end-main
+
+.method AO(x,y,z)
+  .var
+  .end-var
+  
+          iload x
+          iload y
+          iand        //calcolo x AND y
+
+          iload x
+          iload y
+          ior         //calcolo x OR y
+
+          if_icmpeq true
+          bipush 0
+          goto return
+        
+  true:   bipush 1
+  
+  return: ireturn
+  
+.end-method
