@@ -28,6 +28,7 @@ objref  0xCAFE  // may be any value.  Needed by invokevirtual.
 		iload x			//controllo se x<0
 		iflt go_y
 		goto false
+	
 	go_y:	iload y			//controllo se y<0
 		iflt true
 		goto false
