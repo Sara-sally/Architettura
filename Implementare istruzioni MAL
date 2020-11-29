@@ -1,0 +1,33 @@
+Ver.1
+
+Per far funzionare l'emulatore bisogna effettuare 3 modifiche:  
+
+-la prima modifica deve essere effettuata all'interno del file di configurazione dell'emulatore MIC1MMV, nella cartella lib e il nome del file è ijvm.conf. 
+Poi si aggiunge la nuova macro-istruzione specificando il relativo opcode espresso in esadecimale (l'opcode deve essere univoco, diverso da tutti gli altri), 
+il nome simbolico ed eventuali operandi. 
+
+-la seconda modifica deve essere effettuata nel file del microinterprete, nella cartella examples\MAL e il file si chiama mic1ijvm.mal. 
+Bisogna aggiungere tutte le microistruzioni che compongono la nuova micro-istruzione, che compongono la nuova macro-istruzione. 
+Nella sezione dedicata al control store bisogna anche aggiungere una '.label' con l'etichetta della prima micro-istruzione e l'opcode della macroistruzione. 
+
+-la terza modifica deve essere assemblato il file del microinterprete e all'interno delle opzioni dell'emulatore deve essere selezionato il microinterprete e 
+il file di configurazione che abbiamo modificato. 
+
+
+Ver.2
+
+Per implementare la nuova istruzione scritta, dovremo andare a modificare 2 file: il file di configurazione (.conf) e il file 
+contenente il microprogramma (.mal). Innanzitutto, quello che dovremo fare è assegnare un indirizzo di memoria alla prima etichetta
+della nuova istruzione (ad es. removemin1), scrivendolo in fondo alla lista delle label con la seguente sintassi: 
+
+.label removemin1 "indirizzo"
+
+dove "indirizzo" rappresenta l'indirizzo esadecimale assegnato (ad es. 0x40). In seguito, le righe della microistruzione possono essere
+copiate in un qualsiasi punto del file .mal .
+Infine, l'ultima modifica verrò apportata al file .conf: sarà necessario aggiungere in una linea del file l'indirizzo dell'istruzione (lo stesso
+specificato nel file .mal) e l'etichetta con il quale verrà riconosciuta la nuova istruzione in linguaggio IJVM (seguito da eventuali parametri)(as es. REMOVEMIN).
+La sintassi è la seguente: 
+
+"indirizzo" REMOVEMIN
+
+dove "indirizzo", appunto, rappresenta quello specificato in precedenza nel file .mal 
