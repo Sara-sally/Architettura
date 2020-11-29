@@ -5,4 +5,4 @@ SP = SP + 1       //aggiorno sp
 H = MDR       //metto in H il valore letto in mar (se si usa rd bisogna sempre aspettare almeno 1 turno dopo prima di usarlo)
 MAR = LV + 2; rd      //prendo il secondo valore dopo la cima e faccio scostamento di 2
                           //aspetto 1 turno per la rd
-MDR = TOS = H AND MDR; wr; goto(Main1)      
+MDR = TOS = H AND MDR; wr; goto(Main1)       //aggiorno mdr e tos con l'and tra h (cima+1) e il mdr (sotto cima +2)
