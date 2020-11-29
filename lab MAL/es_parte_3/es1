@@ -1,1 +1,14 @@
+//istruction IMUL: prodotto tra i 2 valori in cima
 
+imul1   MAR = SP = SP - 1; rd       //leggo la seconda posizione dalla cima 
+imul2   Z = H = TOS; if(Z) goto end; else goto check      //aggiorno z e h con tos e se è negativo allora non entro in ciclo, se no sì
+imul3   Z = MDR; if(Z) goto end; else goto check        //ora se la seconda parola è anche lei negativa allora non entro in ciclo, se no sì
+
+imul4   Z = MDR - 1; if(Z) goto end; else goto imul5   //aggiorno il ciclo togliendo 1 a mdr, se negativo allora vado a end se no ciclo
+
+imul5   H = H + TOS     //aggiorno h con la somma tra sè stesso e la cima
+imul6   MDR = MDR - 1   //aggiorno mdr
+imul7   goto imul4      //ritorno al ciclo
+
+
+end   TOS = MDR = H; wr; goto Main1    //aggiorno tos e mdr con il valore h, lo scrivo e ritorno in main
