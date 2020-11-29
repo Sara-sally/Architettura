@@ -35,7 +35,7 @@ objref  0xCAFE  // may be any value.  Needed by invokevirtual.
 			
 	true:	bipush 1
 			goto end
-			
+			 
 	false:	bipush 0
 	
 	end:	ireturn
