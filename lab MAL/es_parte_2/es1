@@ -1,0 +1,10 @@
+//Instruction TESTEQ varnum: se la varnum è uguale a 0, fai push di 1 se sì, se no di 0
+
+H = LV        //prendo prima variabile presente nell'indirizzo della prima locazione dentro al blocco delle variabile e la metto in h
+                mbr contiene l'indice, copia lv in h
+MAR = MBRU + H; rd        //mar= indirizzo della var. locale da memorizzare
+MAR = SP = SP + 1;      //aggiorno mar e sp 
+Z = MDR; if(Z) goto testeqT; else goto testeqF      //pongo z come il valore letto prima in cima 5, se zero vai a true, se no false
+
+testeqT MDR = TOS = 1;wr; goto Main1      //il valore è 0, allora aggiorno tos e mdr a 1, lo scrivo e ritorno a main
+testeqF MDR = TOS = 0;wr; goto Main1      //il valore non è 0, allora aggiorno tos e mdr a 0, lo scrivo e ritorno a main
