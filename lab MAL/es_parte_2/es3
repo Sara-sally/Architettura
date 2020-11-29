@@ -1,0 +1,15 @@
+//Instruction CALC24 varnum: salva 17+7 in una variabile varnum 
+
+H = LV      //prendo la prima varnum nell'indirizzo di variabili
+MAR = H + MBRU    //aggiorno mar
+H = 0       //pongo h=0
+H = H + 1     //pongo h=1
+H = OPC = H + 1     //opc=2 h=2
+H = OPC = H + OPC   //opc=4 h=4
+H = OPC = H + OPC   //opc=8 h=8
+OPC = OPC -1        //opc=7
+H = H + OPC         //h=15
+H = H + 1           //h=16
+H = H + 1           //h=17
+PC = PC + 1; fetch    //aggiorno pc ed eeseguo fetch(per varnum)
+MDR = H + OPC; wr; goto Main1       //agggiorno mdr con la somma tra opc=7 e h=17
