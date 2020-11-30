@@ -1,0 +1,46 @@
+.constant
+objref  0xCAFE
+.end-method
+
+.main
+  .var
+  x
+  y
+  flag
+  .end-main
+  
+  bipush -1
+  istore x
+  bipush 1
+  istore y
+  iload x
+  iload y
+  invokevirtual alo_lt
+  istore flag
+  iload flag
+  halt
+  
+.end-main
+
+.method alo_lt(x,y)
+  .var
+  r
+  .end-var
+  
+            iload x
+            iflt neg
+
+            iload y
+            iflt neg
+
+            bipush 0
+            istore r
+            goto return
+
+   neg:     bipush 1
+            istore r
+   
+   return:  iload r 
+            ireturn
+            
+.end-method
