@@ -1,0 +1,54 @@
+.constant
+objref  0xCAFE
+.end-constant
+
+.main
+  .var
+  x
+  y
+  z
+  sum
+  .end-var
+  
+  bipush 3
+  istore x
+  bipush 12
+  istore y
+  bipush 1
+  iload x
+  iload y
+  invokevirtual sommatra
+  istore result
+  halt
+  
+.end-main
+          
+.method sommatra(x,y)
+  .var
+  sum
+  z
+  .end-var
+  
+          iload x
+          iadd
+          istore z        //inizializzo z
+          bipush 0
+          istore sum      //inizializzo sum
+   init:  iload z         //verifico z<y, z-y<0
+          iload y
+          isub
+          iflt loop
+          goto end
+   loop:  iload z
+          iload sum
+          iadd
+          istore sum      //aggiorno somma
+          iload z
+          bipush 1
+          iadd
+          istore z         //aggiorno z
+          goto init
+   end:   iload sum
+          ireturn
+
+.end-method
