@@ -1,0 +1,7 @@
+//istruction REMOVEIN: remove the minor word between the first two 
+
+removemin1 MAR = SP = SP - 1;rd
+removemin2 H = TOS
+removemin3 N = MDR - H; if(N) goto removemin4; else goto removemin5
+removemin4 MDR = TOS;wr; goto Main1
+removemin5 TOS = MDR; goto Main1
