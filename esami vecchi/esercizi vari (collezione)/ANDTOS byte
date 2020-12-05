@@ -1,0 +1,6 @@
+ANDTOS byte che calcola l'AND logico tra la parola in cima allo stack e l'argomento di ANDTOS scrivendo il risultato sulla cima dello stack (sovrascrive)
+
+ANDTOS1 MAR=SP;
+ANDTOS2 H=MBR;
+ANDTOS3 PC=PC+1; fetch
+ANDTOS3 MDR=TOS=TOS AND MBR; wr; goto Main1;
