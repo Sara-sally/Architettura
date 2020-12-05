@@ -1,0 +1,29 @@
+.method div(a,b)
+
+    .var
+        i
+    .end-var
+
+                BIPUSH 0
+                ISTORE i
+
+    loop:       ILOAD a
+                ILOAD b
+                ISUB
+                IFLT return
+
+                //Se ancora nel ciclo, esegue a = a - b
+    calc:       ILOAD a
+                ILOAD b
+                ISUB
+                ISTORE a
+                BIPUSH 1
+                ILOAD i
+                IADD
+                ISTORE i
+                GOTO loop
+
+    return:     ILOAD i
+                IRETURN 
+
+.end-method
