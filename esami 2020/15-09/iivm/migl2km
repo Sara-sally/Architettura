@@ -1,0 +1,99 @@
+Utilizzando il linguaggio assemblativo nel formato JAS visto in laboratorio, scrivere un metodo “migl2km” che riceve come parametri un intero X, 
+inteso come una distanza espressa in miglia, e restituisce la corrispondente distanza espressa in kilometri (arrotondata all’intero inferiore). 
+Scrivere anche il main contenente il codice che realizzi la chiamata di tale metodo con parametro attuale 15, e che scriva il risultato restituito dal 
+metodo in una variabile chiamata result (il risultato attuale atteso è 24). Utilizzare la formula approssimata: 1 miglio =1.6 kilometri. 
+Suggerimento: 1.6 equivale a 16/10
+
+
+.constant
+objref  0xCAFE  // may be any value.  Needed by invokevirtual.
+.end-constant
+
+.main
+.var
+result
+.end-var
+
+ldc_w objref //preparo stack per metodo
+bipush 15
+invokevirtual migl2km
+istore result
+halt 
+
+.end-main
+
+.method migl2km(x)
+.var
+a
+ris
+.end-var
+    ldc_w objref
+    bipush 16
+    bipush 10
+    invokevirtual div       //per trasformare i miglia in km si usa la proporzione 1km:1,6 miglia = x:15 miglia, quindi inizio col trovare la divisione tra 16 e 10 per avere 1,6
+    istore a           
+    
+    
+    ldc_w objref
+    iload x
+    iload a
+    invokevirtual mul       //ora trovo il prodotto tra 15 e 1,6, ovvero la conversione da miglia a km
+    istore ris
+    
+    iload ris
+    ireturn
+
+.end-method
+
+.method div(a,b)
+.var
+i
+.end-var
+
+                BIPUSH 0
+                ISTORE i
+
+    loop:       ILOAD a
+                ILOAD b
+                ISUB
+                IFLT return
+
+                //Se ancora nel ciclo, esegue a = a - b
+    calc:       ILOAD a
+                ILOAD b
+                ISUB
+                ISTORE a
+                BIPUSH 1
+                ILOAD i
+                IADD
+                ISTORE i
+                GOTO loop
+
+    return:     ILOAD i
+                IRETURN 
+
+.end-method
+
+.method mul(a,b)
+
+    .var
+        res
+        i
+    .end-var
+
+    loop:       ILOAD b
+                ILOAD i
+                IF_ICMPEQ return
+
+                //Se ancora nel ciclo, esegue mul = mul + a
+                ILOAD a
+                ILOAD res
+                IADD
+                ISTORE res
+                IINC i 1
+                GOTO loop
+
+    return:     ILOAD res
+                IRETURN 
+
+.end-method
