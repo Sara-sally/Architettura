@@ -1,0 +1,10 @@
+Scrivere il codice MIC1 di una nuova istruzione senza operandi SUMDIFF che sostituisce il secondo e il primo elemento sulla cima della stack rispettivamente 
+con la loro differenza e la loro somma. Ad esempio, se la stack contiene i valori 4,5,6,3,… , dopo l’esecuzione di SUMDIFF la stack dovrà contenere i
+valori 9,1,6,3,…. Si descrivano quindi anche quali modifiche devono essere fatte al file di configurazione dell’emulatore Mic1MMV e al codice del 
+microinterprete stesso affinché l’emulatore possa eseguire un programma IJVM (.jas) contenente la nuova istruzione proposta.
+
+SUMDIFF2  MAR=SP=SP-1,rd;
+SUMDIFF3  H=TOS;
+SUMDIFF4  TOS=MDR-H, wr;
+SUMDIFF5  SP=SP+1;
+SUMDIFF6  TOS=MDR+H,wr, goto Main1;
