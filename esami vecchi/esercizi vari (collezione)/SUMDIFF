@@ -1,0 +1,8 @@
+SUMDIFF sostituisce secondo elemento e primo elemento dello stack rispettivamente con la loro differenza e la loro somma
+Es: se stack contiene 4 e 5, dopo l'esecuzione lo stack avrà 9 e 1
+
+SUMDIFF2  MAR=SP=SP-1; rd
+SUMDIFF3  H=TOS
+SUMDIFF5  MDR=TOS= MDR - H; wr
+SUMDIFF5  MAR=SP=SP+1
+SUMDIFF6  MDR=TOS= MDR + H; wr; goto Main1
