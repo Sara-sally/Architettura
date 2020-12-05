@@ -1,0 +1,7 @@
+ADDOP byte sostituisce la parola in cima allo stack con la somma tra la cima dello stack e il valore intero con segno rappresentato in byte, assumendo che tale
+microcodice vada a modificare il microinterprete
+
+ADDOP1  MAR=SP;
+ADDOP2  H=MBR;
+ADDOP3  PC=PC+1; fetch;
+ADDOP4  MDR=TOS=TOS+H; wr; goto Main1;
