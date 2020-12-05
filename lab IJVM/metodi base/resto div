@@ -1,0 +1,18 @@
+.method resto(x,y)
+
+.var
+.end-var
+
+while: iload x
+       iload y
+       isub
+       iflt fine
+       iload x
+       iload y
+       isub
+       istore x
+       goto while
+fine:  iload x
+       ireturn
+       
+.end-method
