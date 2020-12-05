@@ -1,0 +1,23 @@
+.method mul(a,b)
+
+    .var
+        res
+        i
+    .end-var
+
+    loop:       ILOAD b
+                ILOAD i
+                IF_ICMPEQ return
+
+                //Se ancora nel ciclo, esegue mul = mul + a
+                ILOAD a
+                ILOAD res
+                IADD
+                ISTORE res
+                IINC i 1
+                GOTO loop
+
+    return:     ILOAD res
+                IRETURN 
+
+.end-method
