@@ -1,0 +1,8 @@
+Scrivere il microcodice MIC1 dell'istruzione SUBOP byte, che sostituisce la parola in cima allo stack con la
+differenza tra la stessa e il valore intero con segno rappresentato in byte. 
+
+subop1	MAR = SP				
+subop2	H = MBR       			
+subop3	H = - H                              		 
+subop4	PC = PC + 1; fetch   	
+subop5  MDR = TOS = TOS + H; wr; goto Main1
