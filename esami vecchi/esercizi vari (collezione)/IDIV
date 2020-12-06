@@ -1,0 +1,9 @@
+Scrivere il microcodice MIC1 dell'istruzione IDIV, che sostituisce il contenuto delle ultime 2 parole in cima alla stack (di cui il penultimo
+di valore positivo o nullo e l’ultimo strettamente positivo) con il risultato della loro divisione intera.
+
+idiv1	MAR = SP = SP - 1; rd 		                                    
+idiv2	H = TOS				                        	
+idiv3	OPC = 0				                        	 
+idiv4	MDR = MDR - H; if (N) goto idiv6; else goto idiv5	   	 
+idiv5	OPC = OPC + 1; goto idiv4	                                         	
+idiv6	TOS = MDR = OPC; wr; goto Main1	         
