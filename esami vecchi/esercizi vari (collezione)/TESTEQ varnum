@@ -1,0 +1,10 @@
+Scrivere il microcodice MIC1 dell'istruzione varnum (test-equal-to), che controlla la variabile varnum, inserendo sullo stack il valore 1
+nel caso tale variabile sia uguale a 0, oppure inserendo sullo stack il valore 0 in caso contrario. 
+
+testeq1 H = LV
+testeq2 MAR = MBRU + H; rd
+testeq3 PC = PC + 1; fetch;
+testeq4 MAR = SP = SP + 1
+testeq5 Z = MDR; if (Z) goto testeqT; else goto testeqF
+testeqT MDR = TOS = 1; wr; goto Main1
+testeqF MDR = TOS = 0; wr; goto Main1
