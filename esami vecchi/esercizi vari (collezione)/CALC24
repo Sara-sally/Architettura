@@ -1,0 +1,14 @@
+
+Scrivere il microcodice della istruzione CALC24 in grado di calcolare il valore dell’espressione 17+7
+e di inserirlo nella variabile varnum indicata come argomento.
+
+calc241 OPC=H=1				                 
+calc242 OPC=H=H+OPC			
+calc243 OPC=H=H+OPC			
+calc244 OPC=H=H+OPC			
+calc245 H=H+OPC+1				
+calc246 OPC=OPC-1				
+calc247 MDR = OPC=H+OPC			
+calc248 H = LV
+calc249 PC = PC + 1; fetch;
+calc2410 MAR = MBRU + H; wr; goto Main1
