@@ -1,0 +1,7 @@
+
+Scrivere il codice Mic1 di una nuova istruzione DUPAQUARTER che carica sulla cima dello stack il 
+valore corrente in cima allo stack diviso per 4, assumendo che tale microcodice vada a modificare il microinterprete.
+
+DUPAQUARTER1   MAR = SP = SP + 1
+DUPAQUARTER2   TOS = TOS >> 1
+DUPAQUARTER3   MDR = TOS = TOS >> 1; wr; goto Main1
