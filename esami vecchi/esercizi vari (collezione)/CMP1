@@ -1,0 +1,9 @@
+Scrivere il microcodice dell’istruzione CMP che aggiunge sullo stack la variabile locale con valore maggiore tra quelle con scostamento 1 e 2 da LV.
+
+cmp1 MAR = H = LV + 1; rd
+cmp2 MAR = H + 1; rd
+cmp3 H = MDR
+cmp4 MAR = SP = SP + 1
+cmp5 N = MDR - H; if (N) goto cmpT; else goto cmpF
+cmpT TOS = MDR = H; wr; goto Main1
+cmpF TOS = MDR; wr; goto Main1
