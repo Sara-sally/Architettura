@@ -1,7 +1,14 @@
-INSERTDIFF1   MAR=SP-1;rd
-INSERTDIFF2   MAR=MAR-1;rd
-INSERTDIFF3   H=MDR;
-INSERTDIFF4   MDR=MDR-H;wr
-INSERTDIFF5   MAR=SP=SP+1;
-INSERTDIFF6
-INSERTDIFF7   TOS=MDR;wr;goto Main1
+sostituisce il terzo e il secondo elemento sulla cima dello stack con la loro differenza.
+Es: se lo stack ha 2,3,5,7, dopo l'esecuzione dell'istruzione lo stack avrà 2,2,7
+
+INSERTDIFF1    OPC=TOS
+INSERTDIFF2    SP=SP-1; rd 
+INSERTDIFF3    
+INSERTDIFF4    TOS=MDR;
+INSERTDIFF5    MAR=SP; rd
+INSERTDIFF6    MAR=SP-1;rd
+INSERTDIFF7    H=MDR
+INSERTDIFF8    MDR=MDR-H; wr
+INSERTDIFF9    SP=SP+1
+INSERTDIFF10    SP=SP+1
+INSERTDIFF11    TOS=OPC; wr; goto Main1z
