@@ -1,0 +1,10 @@
+Scrivere il codice di una nuova istruzione ABSSUB che, considerate le due parole in cima allo stack, le sostituisce con il valore
+assoluto della loro differenza. Ad esempio, se lo stack contiene -4, 3, 5, dopo l’esecuzione di ABSSUB conterrà 7, 5
+
+ABSSUB1   MAR = SP = SP – 1; rd
+ABSSUB2
+ABSSUB3   H = MDR
+ABSSUB4   N = H = OPC = TOS – H; if (N) goto ABSSUB5; else goto ABSSUB7
+ABSSUB5   OPC = OPC - H
+ABSSUB6   OPC = OPC – H
+ABSSUB7   MDR = OPC; wr; goto Main1
