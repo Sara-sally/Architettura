@@ -1,0 +1,7 @@
+Scrivere il codice MIC1 di una nuova istruzione senza operandi ABS che, considerata la parole in cima allo stack, la sostituisce con il 
+suo valore assoluto. A titolo di esempio, se lo stack contiene la sequenza -6,2,-3,..., l'esecuzione dell'istruzione ABS modifica lo stack 
+in questo modo 6,2,-3.. 
+
+ABS1	H = TOS; if(N) goto abs2; else goto abs4						
+ABS2	TOS = MDR = - H					
+ABS3	MAR = SP; wr; goto Main1
