@@ -1,0 +1,14 @@
+Scrivere il codice MIC1 di una nuova istruzione con operando di lunghezza un byte NUMSTACK byte che memorizzi 
+nelle prime byte celle dello stack i numeri che vanno da 1 a byte. Ad esempio, se lo stack contiene 8, 9, 2, 6 e byte = 3, 
+dopo l’esecuzione di NUMSTACK, lo stack conterrà 1, 2, 3, 6
+
+NUMSTACK1   TOS = 1;
+NUMSTACK2   H = LV;
+NUMSTACK3   MAR = MBRU + H; rd
+NUMSTACK4   PC = PC + 1; fetch;
+NUMSTACK5   H = 1 ;
+NUMSTACK6   OPC = MDR;
+NUMSTACK7   MAR = SP-H;RD
+NUMSTACK8   Z = OPC - H; if (Z) goto NUMSTACKTRUE; else goto NUMSTACKFALSE
+NUMSTACKFALSE:  	MDR = H = H +1; WR GOTO NUMSTACK7
+NUMSTACKTRUE: 		goto Main1
