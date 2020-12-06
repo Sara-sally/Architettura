@@ -1,0 +1,8 @@
+sostituisce le due celle in cima allo stack con la loro somma solo se è diversa
+da zero. Lo stack deve rimanere invariato in caso contrario
+
+SOMMASTACKSEDIVZERO1   MAR=SP=SP-1; rd
+SOMMASTACKSEDIVZERO2   H=TOS
+SOMMASTACKSEDIVZERO3   Z=MDR=+MDR; if(Z) goto SOMMASTACKSEDIVZERO4; else SOMMASTACKSEDIVZERO5
+SOMMASTACKSEDIVZERO4   TOS=MDR; wr; goto Main1
+SOMMASTACKSEDIVZERO5   goto Main1
