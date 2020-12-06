@@ -1,0 +1,6 @@
+Scrivere il codice MIC1 di una nuova istruzione con un operando "DIVIDEBY2 varnum" che aggiorna
+il valore della variabile locale varnum con il risultato della sua divisione per 2. 
+
+DIVIDEBY2_1    MAR = LV + MBRU; rd				
+DIVIDEBY2_2    PC = PC + 1; fetch				
+DIVIDEBY2_3    TOS = MDR = MDR >> 2; wr; goto Main1	
