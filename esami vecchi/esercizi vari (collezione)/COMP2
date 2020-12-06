@@ -1,6 +1,6 @@
 Si scriva il microcodice dell'istruzione COMP2, senza operandi, che sostituisce il top dello stack con il suo complemento a 2 
 
-comp2_1 	MAR = SP; rd					
-comp2_2 	SP = MAR = SP + 1				
-comp2_3 	H = MDR
+comp2_1   MAR = SP; rd					
+comp2_2   SP = MAR = SP + 1				
+comp2_3   H = MDR
 comp2_4   TOS = MDR = - H; wr; goto Main1
