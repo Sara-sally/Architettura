@@ -1,0 +1,10 @@
+Scrivere il codice mic1 di una nuova istruzione SETLOWBYTE che aggiorna il valore in cima allo stack 
+sostituendo il byte meno significativo della parola che rappresenta tale valore con 0xFF. Ad esempio, 
+se il valore in cima allo stack è 0x2B32C578, il valore aggiornato in cima allo stack dopo l’esecuzione 
+di SETLOWBYTE sarà 0x2B32C5FF. 
+
+SETLOWBYTE1   MAR = SP
+SETLOWBYTE2   OPC = - 1
+SETLOWBYTE3   H = -1 << 8
+SETLOWBYTE4   H = OPC - H
+SETLOWBYTE5   MDR = TOS = TOS OR H; wr; goto Main1
