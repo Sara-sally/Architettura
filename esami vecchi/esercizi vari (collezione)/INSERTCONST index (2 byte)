@@ -1,0 +1,12 @@
+ inserisce come secondo elemento sulla cima dello stack il valore della 
+ constante index. Es: se stack ha 6,1,3,5 e la quarta costante contiene 2, dopo l'esecuzione
+ di INSERTCONST 4 lo stack dovrà avere 6,2,1,3,5
+ 
+ 
+INSERTCONST1  PC=PC+1; fetch
+INSERTCONST2  =MBRU << 8        //il mbru è lungo 2 byte, lo shift si fa in modo che si ha il contenuto del vecchio pc salvato
+INSERTCONST3  MAR=H AND MBRU; rd   //sommo valori con and, in modo tale che riesci a leggere i successivi 8 byte
+INSERTCONST4  PC=PC+1; fetch
+INSERTCONST5  MAR=SP; wr
+INSERTCONST6  MAR=SP=SP+1;
+INSERTCONST7  MDR=TOS; wr;goto Main1
