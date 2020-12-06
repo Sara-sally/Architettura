@@ -1,0 +1,9 @@
+Scrivere il codice MIC1 Di una nuova istruzione SHR5, senza operandi, che sostituisce il valore 
+presente in cima alla stack con tale valore shiftato a destra di 5 posizioni. 
+
+SHR5_1   MAR = SP
+SHR5_2   TOS = TOS >> 1
+SHR5_3   TOS = TOS >> 1
+SHR5_4   TOS = TOS >> 1
+SHR5_5   TOS = TOS >> 1
+SHR5_6   MDR = TOS = TOS >> 1; wr; goto Main1
