@@ -1,0 +1,9 @@
+Scrivere il codice MIC1 di una nuova istruzione SWAPLOC1S che scambi il contenuto della prima variabile locale col dato
+contenuto nella cima dello stack. 
+
+swaploc1s1    MAR = LV; rd			
+swaploc1s2    OPC = TOS				
+swaploc1s3    MAR = SP; wr			
+swaploc1s4    TOS = MDR				
+swaploc1s5    MDR = OPC
+swaploc1s6    MAR = LV; wr; goto Main1
