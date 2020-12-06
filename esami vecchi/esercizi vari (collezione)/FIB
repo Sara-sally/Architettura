@@ -1,0 +1,11 @@
+Data la seguente definizione della serie di Fibonacci: fib(1) = 1, fib(2) = 1, fib(n) = fib(n-1) + fib(n-2), per n>2 scrivere il microcodice 
+MIC1 dell'istruzione FIB, che sostituisce il contenuto n>0 della parola in cima alla stack con il corrispondente numero di Fibonacci, fib(n).
+
+fib1	OPC = 0;
+fib2	H = 1;
+fib3	TOS = TOS - 1; if (Z) goto fib7; else goto fib4
+fib4	MDR = H;
+fib5	H = H + OPC;
+fib6	OPC = MDR; goto fib3
+fib7	MAR = SP
+fib8	MDR = TOS = H; wr; goto Main1
