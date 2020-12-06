@@ -1,0 +1,10 @@
+Scrivere il codice MIC1 di una nuova istruzione con operando di lunghezza un byte SETNSTACK varnum che pone a 1 le prime N celle dello stack, dove N è dato dal contenuto
+della variabile locale varnum. Nota: lo stack pointer non deve cambiare valore.
+
+SETNSTACK1   MAR = SP
+SETNSTACK2   Z = MDR; if (Z) goto SETNSTACK3; else goto SETNASTACK2
+SETNSTACK3   MBR = MBR – 1; rd
+SETNSTACK4   MDR = 1; wr
+SETNSTACK5   MAR = MAR - 1
+SETNSTACK6   goto SETNSTACK2
+SETNSTACK7   PC = PC + 1; fetch; goto Main1
