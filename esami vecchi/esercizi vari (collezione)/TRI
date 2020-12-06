@@ -1,0 +1,6 @@
+Scrivere il codice MIC1 di una nuova istruzione TRI che inserisce sullo stack due volte 
+il valore correntemente presente in cima allo stack di esecuzione
+
+TRI1   MAR = SP = SP + 1
+TRI2   MDR = TOS; wr
+TRI3   MAR = SP = SP + 1; wr; goto Main1
