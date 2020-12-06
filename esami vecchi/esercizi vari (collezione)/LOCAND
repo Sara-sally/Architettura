@@ -1,0 +1,8 @@
+Scrivere un microcodice MIC1 dell'istruzione senza operandi LOCAND, che scrivere sulla cima dello stack il risultato 
+dell'AND bit-a-bit tra le due variabili locali con scostamento 1 e 2 da LV. 
+
+locand1	 MAR = LV + 1; rd; 			
+locand2	 SP = SP + 1				
+locand3	 H = MDR			
+locand4	 MAR = LV + 2; rd			
+locand5	 MDR = TOS = H AND MDR; wr; goto Main1
