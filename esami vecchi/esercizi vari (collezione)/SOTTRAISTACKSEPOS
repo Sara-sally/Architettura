@@ -1,0 +1,8 @@
+Scrivere il codice Mic1 di una nuova istruzione senza parametri SOTTRAISTACKSEPOS che sostituisce le due celle in cima allo stack con la loro differenza
+(M[SP-1] – M[SP]) solo se il risultato non è negativo. Lo stack deve rimanere invariato in caso contrario.  
+
+SOTTRAISTACKSEPOS1   MAR = SP – 1; rd
+SOTTRAISTACKSEPOS2   H = TOS
+SOTTRAISTACKSEPOS3   N = MDR = MDR – H; if (N) goto SOTTRAISTACKSEPOS5; else goto SOTTRAISTACKSEPOS4
+SOTTRAISTACKSEPOS4   TOS = MDR; wr
+SOTTRAISTACKDEPOS5   goto Main1
