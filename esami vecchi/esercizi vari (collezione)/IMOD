@@ -1,0 +1,7 @@
+Scrivere il microcodice MIC1 dell'istruzione IMOD, che sostituisce il contenuto delle ultime 2 parole in cima alla stack 
+(di cui il penultimo di valore positivo o nullo e l’ultimo strettamente positivo) con il resto della loro divisione.
+
+imod1	MAR = SP = SP - 1; rd 		                                           
+imod2	H = TOS				                       	                                
+imod3	MDR = MDR - H; if (N) goto imod4; else goto imod3	                    
+imod4	TOS = MDR = MDR + H; wr; goto Main1	
