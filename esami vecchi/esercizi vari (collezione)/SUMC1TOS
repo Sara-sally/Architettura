@@ -1,0 +1,8 @@
+Scrivere il codice MIC1 di una nuova istruzione sumc1tos SENZA OPERANDI che somma il valore presente 
+sulla cima dello stack con la prima costante definita (a scostamento 0 rispetto alla base della constant pool). 
+Il valore calcolato dovrà SOSTITUIRE il contenuto corrente in cima alla stack.	 
+
+sumc1tos1   MAR = CPP; rd					
+sumc1tos2   SP = MAR = SP + 1						
+sumc1tos3   H = MDR					
+sumc1tos4   MDR = TOS = H + TOS; wr; goto Main1	
