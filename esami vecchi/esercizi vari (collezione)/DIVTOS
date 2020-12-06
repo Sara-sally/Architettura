@@ -1,0 +1,4 @@
+Scrivere il codice Mic1 di una nuova istruzione DIVTOS che sostituisce TOS con TOS diviso 2
+
+DIVTOS1   MAR = SP
+DIVTOS2   MDR = TOS >> 1; wr; goto Main1
