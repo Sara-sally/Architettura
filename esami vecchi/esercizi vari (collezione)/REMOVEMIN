@@ -1,0 +1,9 @@
+Scrivere il codice MIC1 di una nuova istruzione senza operandi REMOVEMIN che, considerate le due parole
+in cima allo stack, ne rimuove quella con il valore minimo. A titolo di esempio, se lo stack 
+contiene la sequenza 15,7,3,..., l'esecuzione dell'istruzione REMOVEMIN modifica lo stack in questo modo 15,3,.... 
+
+removemin1   MAR = SP = SP - 1; rd		
+removemin2   H = TOS						
+removemin3   N = MDR - H; if (N) goto removemin4; else goto removmin5;		
+removemin4   MDR = H; wr; goto Main1		
+removemin5   TOS = MDR; wr; goto Main1	
