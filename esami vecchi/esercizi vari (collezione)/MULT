@@ -1,0 +1,9 @@
+Si scriva il microcodice dell'istruzione MULT che ha come operando un valore intero N che sostituisce il valore in cima
+allo stack con la sua moltiplicazione per N
+
+mult1	MDR = H = TOS
+mult2	OPC = MBR
+mult3	PC = PC +1; fetch
+mult4	Z = OPC = OPC -1; if (Z) goto mult6; else goto mult5
+mult5	MDR = TOS = H + TOS; goto mult4
+mult6	MAR=SP; wr; goto Main1
