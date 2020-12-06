@@ -1,0 +1,16 @@
+Scrivere il codice MIC1 di una nuova istruzione IMUL analoga a IADD, assumendo che:
+1) L'operando in cima allo stack sia > 0 
+2) Non si presentino problemi di overflow	
+
+imul1	MAR = SP = SP - 1; rd 				
+imul2	H = H + TOS					
+imul3	MDR = TOS = H; wr; goto Main1 			
+
+Alternativa:
+
+imul1	MAR = SP = SP - 1; rd 				
+imul2	H = 0 						
+imul3	Z = MDR; if (Z) goto imul6; else goto imul4 	
+imul4	H = H + TOS					
+imul5	MDR = 1; goto imul3 				
+imul6	MDR = TOS = H; wr; goto Main1 	
