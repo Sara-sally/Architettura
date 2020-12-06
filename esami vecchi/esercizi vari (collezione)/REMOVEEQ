@@ -1,0 +1,8 @@
+Scrivere il codice Mic1 di una nuova istruzione REMOVEEQ, senza operandi, che elimina la parola in cima
+alla stack se essa contiene lo stesso valore sella seconda. 
+
+REMOVEEQ1   MAR = SP – 1; rd
+REMOVEEQ2   H = TOS
+REMOVEEQ3   Z = MDR – H; if (Z) goto REMOVEEQ4; else goto REMOVEEQ5
+REMOVEEQ4   SP = SP - 1
+REMOVEEQ5   goto Main1
