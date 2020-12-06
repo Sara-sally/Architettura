@@ -4,6 +4,6 @@ Es: se stack contiene 4 e 5, dopo l'esecuzione lo stack avrà 9 e 1
 SUMDIFF2  MAR=SP=SP-1; rd
 SUMDIFF3  H=TOS
 SUMDIFF4  OPC=MDR
-SUMDIFF5  MDR=TOS= OPC - H; wr
+SUMDIFF5  MDR=OPC - H; wr
 SUMDIFF6  MAR=SP=SP+1
 SUMDIFF7  MDR=TOS= OPC + H; wr; goto Main1
