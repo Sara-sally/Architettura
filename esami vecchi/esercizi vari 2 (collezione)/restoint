@@ -1,6 +1,8 @@
-Scrivere metodo restoint che riceve come parametri due numeri positivi X e Y, e restituisce al chiamante il resto della divisione intera tra X e Y
-Scrivere anche il main contenente il codice che realizzi la chiamata di tale metodo con parametri attuali rispettivamente 13 e 5(in notazione 
-decimale) e che scriva il risultato restituito dal metodo in una variabile chiamata result
+Scrivere un metodo estraibit che riceve come parametri due numeri X e Y, e restituisce al chiamante il valore del Y-esimo bit del numero X (assumere che Y sia
+compreso tra 0 e 31)
+Scrivere anche il main contenente il codice che realizzi la chiamata di tale metodo con parametri attuali rispettivamente 7 e 2 (in notazione 
+decimale) e che scriva il risultato restituito dal metodo in una variabile chiamata result (si costruisca  con un ciclo una opportuna maschera da 
+mettere in AND con X)
 
 
 .constant
