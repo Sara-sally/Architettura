@@ -1,5 +1,8 @@
-Scrivere anche il main contenente il codice che realizzi la chiamata di tale metodo con parametri attuali rispettivamente 5,9 e 4(in notazione 
-decimale) e che scriva il risultato restituito dal metodo in una variabile chiamata result
+Scrivere un metodo estraibit che riceve come parametri due numeri X e Y, e che restituisce al chiamante il valore del Y-esimo bit del numero X (assumere
+che Y sia compreso tra 0 e 31)
+Scrivere anche il main contenente il codice che realizzi la chiamata di tale metodo con parametri attuali rispettivamente 7 e 2(in notazione 
+decimale) e che scriva il risultato restituito dal metodo in una variabile chiamata result( in IJVM non sono disponibili istruzioni di scorrrimento, pertanto si costruisca
+con un ciclo una opportuna maschera da mettere in AND con X)
 
 
 .constant
