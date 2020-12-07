@@ -1,0 +1,73 @@
+Scrivere un metodo COMP2 con 3 parametri formali (chiamateli X, Y e K) che restituisca al chiamante il più piccolo tra X e Y se l'espressione X-2Y+K è negativa,
+oppure, in caso contrario, che restituisca il più grande tra X e Y
+Scrivere anche il main contenente il codice che realizzi la chiamata di tale metodo con parametri attuali rispettivamente 34,6,9 (in notazione 
+decimale) e che scriva il risultato restituito dal metodo in una variabile chiamata value
+
+
+.constant
+objref  0xCAFE  // may be any value.  Needed by invokevirtual.
+.end-constant
+
+.main
+
+    .var
+        x
+        y
+        k
+        value
+    .end-var
+
+    BIPUSH 34
+    ISTORE x
+    BIPUSH 6
+    ISTORE y
+    BIPUSH 9
+    ISTORE k
+    BIPUSH 0
+    ISTORE z
+    ILOAD x
+    ILOAD y
+    ILOAD k
+    INVOKEVIRTUAL comp2
+    ISTORE value
+    ILOAD value
+    HALT
+
+.end-main
+
+.method comp2(x,y,k)
+
+    .var
+        res
+    .end-var
+
+                ILOAD x
+                ILOAD y
+                DUP
+                IADD
+                ISUB
+                ILOAD k
+                IADD
+                IFLT min   //Verifica che (x-2*y+k) < 0
+
+                ILOAD y    //Verifica che x > y 
+                ILOAD x
+                ISUB
+                IFLT max_x
+                ILOAD y
+                GOTO return
+    max_x:      ILOAD x
+                GOTO return   
+
+    min:        ILOAD x     //Verifica che x < y 
+                ILOAD y
+                IFLT min_x
+                ILOAD y
+                GOTO return
+    min_x:      ILOAD x
+
+    return:     ISTORE res
+                ILOAD res
+                IRETURN
+
+.end-method
