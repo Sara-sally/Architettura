@@ -1,0 +1,51 @@
+Scrivere un metodo alo_lt che riceva come parametri due numeri X e Y, e che restituisca al chiamante il valore 1 se almeno uno tra X ed Y è minore di 0 e che 
+restituisca 0 altrimenti
+Scrivere anche il main contenente il codice che realizzi la chiamata di tale metodo con parametri attuali rispettivamente -1 e 1 (in notazione 
+decimale) e che scriva il risultato restituito dal metodo in una variabile chiamata flag
+
+.constant
+objref  0xCAFE
+.end-method
+
+.main
+  .var
+  x
+  y
+  flag
+  .end-main
+  
+  bipush -1
+  istore x
+  bipush 1
+  istore y
+  iload x
+  iload y
+  invokevirtual alo_lt
+  istore flag
+  iload flag
+  halt
+  
+.end-main
+
+.method alo_lt(x,y)
+  .var
+  r
+  .end-var
+  
+            iload x
+            iflt neg
+
+            iload y
+            iflt neg
+
+            bipush 0
+            istore r
+            goto return
+
+   neg:     bipush 1
+            istore r
+   
+   return:  iload r 
+            ireturn
+            
+.end-method
