@@ -1,0 +1,7 @@
+Scrivere il codice di una nuova istruzione REMOVEMAX che, considerate due parole in cima allo stack, ne rimuove quella con il valore massimo. Ad esempio, se lo stack contiene 5, 7, 3, dopo l’esecuzione di REMOVEMAX lo stack conterrà 5, 3
+
+REMOVEMAX1   MAR = SP = SP – 1; rd
+REMOVEMAX2   H = TOS
+REMOVAMAX3   N = MDR – H; if (N) goto REMOVEMAX5; else goto REMOVEMAX4
+REMOVEMAX4   MDR = H; wr; goto Main1
+REMOVEMAX5   TOS = MDR; wr; goto Main1
