@@ -1,0 +1,61 @@
+Scrivere un metodo MINFACTOR con 2 parametri formali (chiamateli X e Y), entrambi interi positivi, che restituisca al chiamante il più piccolo intero K tale che K*X > Y 
+Scrivere anche il main contenente il codice che realizzi la chiamata di tale metodo con parametri attuali rispettivamente 5 e 10(in notazione decimale) e che 
+scriva il risultato restituito dal metodo in una sua variabile locale chiamata value
+
+.constant
+objref  0xCAFE  // may be any value.  Needed by invokevirtual.
+.end-constant
+
+.main
+
+    .var
+        x
+        y
+        z
+    .end-var
+
+    BIPUSH 5
+    ISTORE x
+    BIPUSH 10
+    ISTORE y
+    ILOAD x
+    ILOAD y
+    INVOKEVIRTUAL MINFACTOR
+    ISTORE z
+    ILOAD z
+
+.end-main
+
+.method MINFACTOR(x,y)
+
+    .var
+        k
+        mul
+    .end-var
+                //Valori iniziali delle variabili
+                BIPUSH 1
+                ISTORE k
+                
+                
+                //Aggiunta di x a mul
+    init:       ILOAD mul
+                ILOAD x
+                IADD
+                ISTORE mul
+
+                //Verifica che y-mul < 0 ; in caso
+                //trovato il valore di k!!
+                ILOAD y
+                ILOAD mul
+                ISUB
+                IFLT return
+                ILOAD k
+                BIPUSH 1
+                IADD
+                ISTORE k
+                GOTO init
+
+    return:     ILOAD k
+                IRETURN
+    
+.end-method
