@@ -2,6 +2,7 @@ Considerando che dal 1950 il campionato del mondo di calcio si svolge ogni 4 ann
 "anno" (supporre che questo numero sia maggiore o uguale a 1950, senza bisogno di controllare che lo sia realmente) e che restituisce il numero complessivo di edizioni 
 del campionato del mondo di calcio che si sono tenute fino all'anno ricevuto in ingresso (incluso). Ad esempio , se viene fornito come parametro un valore nell'intervallo
 [1958, 1961], il risultato deve essere 3.
+Scrivere anche il main contenente il codice che realizzi la chiamata di tale metodo, scrivendo il risultato restituito dal metodo in una variabile chiamata value
 
 .constant
 objref  0xCAFE  // may be any value.  Needed by invokevirtual.
@@ -11,15 +12,15 @@ objref  0xCAFE  // may be any value.  Needed by invokevirtual.
 
     .var
         anno
-        z
+        result
     .end-var
 
     BIPUSH 1970
     ISTORE anno
     ILOAD anno
     INVOKEVIRTUAL EDIZIONICOPPA
-    ISTORE z
-    ILOAD z
+    ISTORE result
+    ILOAD result
 
 .end-main
 
