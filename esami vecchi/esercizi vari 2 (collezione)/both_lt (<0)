@@ -1,0 +1,47 @@
+Scrivere un metodo both_lt che riceva come parametri due numeri X e Y, e restituisca al chiamante il valore 1 se X e Y sono entrambi minori di 0 e che restituisca
+0 altrimenti. Scrivere anche il main contenente il codice che realizzi la chiamata di tale metodo con parametri attuali rispettivvamente -1 e 1(in notazione 
+decimale) e che scriva il risultato restituito dal metodo in una variabile chiamata flag
+
+.constant
+objref  0xCAFE  // may be any value.  Needed by invokevirtual.
+.end-constant
+
+.main
+	.var
+	x
+	y
+	flag
+	.end-var
+
+	bipush -1
+	istore x
+	bipush 1
+	istore y
+	iload x
+	iload y
+	invokevirtual both_lt
+	istore flag
+	iload flag 
+	halt
+.end-main
+
+.method
+.var
+.end-var
+
+		iload x			//controllo se x<0
+		iflt go_y
+		goto false
+	
+	go_y:	iload y			//controllo se y<0
+		iflt true
+		goto false
+	
+	true:	bipush 1
+		goto end
+	
+	false:bipush 0
+	
+	end:ireturn
+
+.end-method
