@@ -1,0 +1,62 @@
+Scrivere metodo ISTRIANGLE che riceve come parametri tre numeri interi positivi x,y,z e che restituisce al chiamante 1 se x,y,z possono essere i lati di 
+un triangolo, mentre restituisce 0 in caso contrario (in un triangolo ciascun lato è minore della somma degli altri due
+Scrivere anche il main contenente il codice che realizzi la chiamata di tale metodo con parametri attuali rispettivamente 5,9 e 4(in notazione 
+decimale) e che scriva il risultato restituito dal metodo in una variabile chiamata result
+
+.constant
+objref  0xCAFE 
+.end-constant
+
+.main
+  .var
+  x
+  y
+  z
+  result
+  .end-var
+  
+  bipush 5
+  istore x
+  bipush 9
+  istore y
+  bipush 4
+  istore z
+  iload x
+  iload y
+  iload z
+  invokevirtual istriangle
+  istore result
+  halt
+.end-main
+
+.method istriangle(x,y,z)
+  .var
+  .end-var
+  
+          iload x
+          iload y
+          iload z
+          iadd          
+          isub            
+          iflt end        //(y+z)-x <0, se si allora x>y+z
+
+          iload y
+          iload x
+          iload z
+          iadd
+          isub
+          iflt end        //(x+z)-y <0, se si allora y>x+z
+
+          iload z
+          iload x
+          iload y
+          iadd
+          isub
+          iflt end        //(x+y)-z <0, se si allora z>x+y
+
+          bipush 1
+          goto return
+  
+  end:    bipush 0
+       
+  return: ireturn
