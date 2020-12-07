@@ -1,0 +1,59 @@
+Scrivere un metodo sommatra che riceve come parametri due numeri interi positivi X eY (con X<Y) e che restituisce la somma di tutti i numeri interi compresi
+tra X e Y, estremi esclusi
+Scrivere anche il main contenente il codice che realizzi la chiamata di tale metodo con parametri attuali rispettivamente 3 e 12 (in notazione 
+decimale) e che scriva il risultato restituito dal metodo in una variabile chiamata result 
+
+.constant
+objref  0xCAFE
+.end-constant
+
+.main
+  .var
+  x
+  y
+  z
+  sum
+  .end-var
+  
+  bipush 3
+  istore x
+  bipush 12
+  istore y
+  bipush 1
+  iload x
+  iload y
+  invokevirtual sommatra
+  istore result
+  halt
+  
+.end-main
+          
+.method sommatra(x,y)
+  .var
+  sum
+  z
+  .end-var
+  
+          iload x
+          iadd
+          istore z        //inizializzo z
+          bipush 0
+          istore sum      //inizializzo sum
+   init:  iload z         //verifico z<y, z-y<0
+          iload y
+          isub
+          iflt loop
+          goto end
+   loop:  iload z
+          iload sum
+          iadd
+          istore sum      //aggiorno somma
+          iload z
+          bipush 1
+          iadd
+          istore z         //aggiorno z
+          goto init
+   end:   iload sum
+          ireturn
+
+.end-method
