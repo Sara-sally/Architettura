@@ -1,3 +1,6 @@
+Scrivere metodo restoint che riceve come parametri due numeri positivi X e Y, e restituisce al chiamante il resto della divisione intera tra X e Y
+Scrivere anche il main contenente il codice che realizzi la chiamata di tale metodo con parametri attuali rispettivamente 13 e 5(in notazione 
+decimale) e che scriva il risultato restituito dal metodo in una variabile chiamata result
 
 
 .constant
