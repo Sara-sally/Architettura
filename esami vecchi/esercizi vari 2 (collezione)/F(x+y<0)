@@ -1,0 +1,40 @@
+Scrivere un metodo f con parametri formali(chiamateli X, Y e Z) che restituisca al chiamante il numero 1 se la somma dei tre è maggiore di 0, ed il numero
+0 altrimenti. Scrivere anche il main contenente il segmento di codice che realizza la chiamata di tale metodo
+
+.constant
+objref  0xCAFE
+.end-constant
+
+.main
+
+.var
+result
+.en-var
+
+  LDC_W objref
+  iload 5
+  iload 7
+  iload 1
+  invokevirtual F
+  istore result
+  iload result 
+  halt
+  
+.end-main
+
+.method F(x,y,z)
+.var
+.end-var
+
+     iload x
+     iload y
+     iload z
+     iadd
+     iadd
+     iflt neg
+     bipush 1
+     goto end
+neg: bipush 0
+end: ireturn
+
+.end-method
