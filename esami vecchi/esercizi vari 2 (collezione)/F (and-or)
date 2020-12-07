@@ -1,0 +1,53 @@
+Metodo F con 3 parametri formali (chiamateli X,Y,Z) che restituisca al chiamante il numero 1 se l'AND logico tra X ed Y è uguale all'OR logico tra Y e Z ed 
+il numero 0 altrimenti. Scrivere anche il main contenente il codice che realizzi la chiamata di tale metodo con parametri attuali X=1, Y=1, Z=1 e che scriva il 
+risultato restituito dal metodo F in una sua variabile locale chiamata RESULT
+
+.constant
+objref  0xCAFE // may be any value.  Needed by invokevirtual.
+.end-constant
+
+.main
+  .var
+  x
+  y
+  z
+  result
+  .end-var
+  
+  bipush 1
+  istore x
+  bipush 1
+  istore y
+  bipush 1 
+  istore z
+  LDC_W objref
+  iload x
+  iload y
+  iload z
+  invokevirtual F
+  istore result
+  iload result
+  halt
+.end-main
+
+.method F(x,y,z)
+  .var
+  .end-var
+  
+          iload x
+          iload y
+          iand        //calcolo x AND y
+
+          iload x
+          iload y
+          ior         //calcolo x OR y
+
+          if_icmpeq true
+          bipush 0
+          goto return
+        
+  true:   bipush 1
+  
+  return: ireturn
+  
+.end-method
