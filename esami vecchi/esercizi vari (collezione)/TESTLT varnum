@@ -1,0 +1,10 @@
+Scrivere il codice mic1 di una nuova istruzione TESTLT varnum che controlla la variabile varnum inserendo sullo stack 
+il valore 1 se la variabile è minore di 0, 0 altrimenti. 
+
+TESTLT1 H = LV
+TESTLT2 MAR = MBRU + H; rd
+TESTLT3 PC = PC + 1; fetch;
+TESTLT4 MAR = SP = SP + 1
+TESTLT5 N = MDR; if (N) goto TESTLT6; else goto TESTLT7
+TESTLT6 MDR = TOS = 1; wr; goto Main1
+TESTLT7 MDR = TOS = 0; wr; goto Main1
