@@ -35,7 +35,7 @@ loop:         IINC q -1
               ILOAD m
               DUP
               IADD
-              ISTORE m     //inizializzo m in modo che punti alla 12 posizone
+              ISTORE m     //inizializzo m in modo che punti alla posizione precedente della richiesta
               GOTO loop
 
 persona 1:    ILOAD m
