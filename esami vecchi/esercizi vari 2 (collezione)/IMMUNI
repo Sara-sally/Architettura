@@ -1,0 +1,69 @@
+.constant
+objref  0xcafe
+.end-constant
+
+.main
+.var
+result
+.end-var
+
+LDC_W objref
+BIPUSH 13
+BIPUSH 0
+INVOKEVIRTUAL immuni
+ISTORE result
+ILOAD result
+HALT
+.end-main
+
+.method immuni(n,s)
+.var
+q
+m
+.end-var
+
+              BIPUSH 1
+              ISTORE m
+              ILOAD s
+              ISTORE q
+              IINC q -1         //inizializzo q in modo che sia una posizione indietro a n, dove n è la persona
+              ILOAD q
+              IFEQ persona 2    //controllo che q non sia negativo, ovvero che la persona in questione non sia la prima(posizione 0), in quel caso salto direttamente alla seconda persona
+
+loop:         IINC q -1
+              IFEQ persona 1
+              ILOAD m
+              DUP
+              IADD
+              ISTORE m     //inizializzo m in modo che punti alla 12 posizone
+              GOTO loop
+
+persona 1:    ILOAD m
+              ILOAD n
+              IAND
+              IFEQ persona 2      //se la persona precedente a n non è positiva allora passo alla persona successiva
+              goto positivo       //altrimenti ho trovato il mio caso
+            
+persona 2:    ILOAD m
+              DUP
+              IADD
+              ISTORE m      //salto la persona di cui dobbiamo controllare i vicini
+          
+              ILOAD m
+              DUP
+              IADD
+              ISTORE m     //passo alla persona successiva
+              
+              ILOAD m
+              ILOAD n
+              IAND
+              IFEQ insuccesso
+
+positivo:     bipush 1
+              goto end
+
+insuccesso:   bipush 0
+
+end:          ireturn
+
+.end-method    
