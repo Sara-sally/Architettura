@@ -25,6 +25,7 @@ result
 cont
 mask  //1, 10, 100...
 bitcont
+.end-var
 
       ILOAD k
       ISTORE cont
