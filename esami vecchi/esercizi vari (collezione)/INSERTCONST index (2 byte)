@@ -4,7 +4,7 @@
  
  
 INSERTCONST1  PC=PC+1; fetch
-INSERTCONST2  =MBRU << 8        //il mbru è lungo 2 byte, lo shift si fa in modo che si ha il contenuto del vecchio pc salvato
+INSERTCONST2  H=MBRU << 8        //il mbru è lungo 2 byte, lo shift si fa in modo che si ha il contenuto del vecchio pc salvato
 INSERTCONST3  MAR=H AND MBRU; rd   //sommo valori con and, in modo tale che riesci a leggere i successivi 8 byte
 INSERTCONST4  PC=PC+1; fetch
 INSERTCONST5  MAR=SP; wr
