@@ -1,0 +1,59 @@
+.constant
+objref    0xCAFE
+.end-constant
+
+.main
+.var
+result
+.end-var
+  LDC_W objref
+  bipush 14
+  bipush 3
+  invokevirtual immuni
+  istore result
+  iload result
+  halt
+.end-main
+
+.method immuni(n,k)
+.var
+pot
+cont
+.end-var
+        bipush 1
+        istore pot
+        bipush 0
+        istore cont
+ciclo:  iload n
+        iload pot
+        isub
+        iflt end
+        iload k
+        iload cont
+        isub
+        ifeq end
+        iload n
+        iload pot
+        iand
+        ifeq no1
+        iload pot
+        dup
+        iadd
+        istore pot
+        iinc cont 1
+        goto ciclo
+no1:    iload pot
+        dup
+        iadd
+        istore pot
+        bipush 0
+        istore cont
+        goto ciclo
+end:    iload k
+        iload cont
+        if_icmpeq seq
+        bipush 0
+        ireturn
+seq:    bipush 1
+        ireturn
+.end-method
