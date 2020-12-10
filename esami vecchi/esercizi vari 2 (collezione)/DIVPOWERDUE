@@ -1,0 +1,55 @@
+Scrivere metodo che riceve come parametri due numeri positivi X e K, e restituisce 1 se X è divisibile per 2^k (2 elevato alla k), e 0 altrimenti.
+Scrivere anche il main contenente il codice che realizzi la chiamata di tale metodo con parametri attuali 64 e 5, e che scriva il risultato restituito dal
+metodo in una variabile chiamata result (risultato atteso 1).
+Suggerimento: determinare se X contiene un adeguato numero di bit meno significativi di valore 0
+
+.constant
+objref    0xCAFE
+.end-costant
+
+.main
+.var 
+result
+.end-var
+    LDC_W objref
+    BIPUSH 16
+    BIPUSH 3
+    INVOKEVIRTUAL divpowerdue
+    ISTORE result
+    ILOAD result
+    HALT
+.end-main
+
+.method divpowerdue(x,k)
+.var
+cont
+mask  //1, 10, 100...
+bitcont
+
+      ILOAD k
+      ISTORE cont
+      BIPUSH 1
+      ISTORE mask
+      BIPUSH 0
+      ISTORE bitcont
+X2:   ILOAD x
+      ILOAD mask
+      IAND
+      IFEQ X3
+      goto X4
+X3:   IINC bitcont 1
+      ILOAD mask
+      DUP
+      IADD
+      ISTORE mask
+      goto X2
+X4:   ILOAD bitcont
+      ILOAD k
+      ISUB
+      IFLT X5
+      BIPUSH 1
+      IRETURN
+X5:   BIPUSH 0
+      IRETURN
+      
+.end-method
