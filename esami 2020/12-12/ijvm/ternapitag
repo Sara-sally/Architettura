@@ -1,3 +1,6 @@
+Scrivere metodo "ternapitag" che riceve come parametri x,y,z e restituisce 1 se
+z^2 = x^2 + y^2, 0 altrimenti. Scrivere main con parametri atttuali 3.4.5
+
 .constant
 objref 0xCAFE
 .end-constant
