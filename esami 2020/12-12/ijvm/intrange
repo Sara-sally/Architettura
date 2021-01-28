@@ -19,26 +19,55 @@ objref 0xCAFE
 .end-main
 
 .method intrange(x,y,z)
-.var
-    max
-    min
-    cont
-.end-var
-    bipush 0
-    istore cont
-    LDC_W objref
-    iload x
-    iload y
-    iload z
-    invokevirtual maxtrenumeri
-    istore max
-    
+    .var
+        max
+        min
+        cont
+    .end-var
+                bipush 0
+                istore cont
+                LDC_W objref
+                iload x
+                iload y
+                iload z
+                invokevirtual maxtrenumeri
+                istore max
+                iload max
+                iload x
+                isub
+                ifeq minzy
+                iload max
+                iload y
+                ifeq minxz
+                goto minxy
+         minzy: LDC_W objref
+                iload z
+                iload y
+                invokevirtual minduenumeri
+                istore min 
+                goto intervallo
+         minxz: LDC_W objref
+                iload x
+                iload z
+                invokevirtual minduenumeri
+                istore min
+                goto intervallo
+         minxy: LDC_W objref
+                iload x
+                iload y
+                invokevirtual minduenumeri
+                istore min
+    intervallo: iload max
+                iload min
+                isub
+                iadd 1
+                ireturn
 .end-method
 
 method maxtrenumeri(a,b,c)
-.var
-massimo
-.end-var
+    .var
+    massimo
+    .end-var
             iload a
             iload b
             isub
@@ -62,3 +91,20 @@ massimo
    finemax: iload massimo
             ireturn
 .end-method
+
+.method minduenumeri(k,w)
+    .var
+    minimo
+    .end-var
+            iload k
+            iload w
+            isub
+            iflt altro
+            iload w
+            istore minimo
+            goto finemin
+     altro: iload k
+            istore minimo
+   finemin: iload minimo
+            ireturn
+ .end-method
