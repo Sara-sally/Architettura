@@ -1,0 +1,83 @@
+.constant
+objref 0xCAFE
+.end-constant
+
+.main
+  .var
+  result
+  .end-var
+
+    LDC_W objref
+    bipush 3
+    bipush 4
+    bipush 5
+    invokevirtual ternapitag
+    istore result
+    halt
+    
+.end-main
+
+.method ternapitag(x,y,z)
+  .var
+  squarex
+  squarey
+  squarez
+  sum
+  .end.var
+  
+        LDC_W objref
+        iload x
+        invokevirtual square
+        istore squarex
+
+        LDC_W objref
+        iload y
+        invokevirtual square
+        istore squarey
+
+        LDC_W objref
+        iload z
+        invokevirtual square
+        istore squarez
+
+        iload squarex
+        iload squarey
+        iadd
+        iload squarez
+        isub
+        ifeq fine
+        bipush 0
+        goto end
+  fine: bipush 1
+   end: ireturn 
+   
+.end-method
+
+.method square(n)
+  .var
+  copia
+  res
+  i
+  .end-var
+          iload n
+          istore copia
+          bipush 1
+          istore i
+          bipush 0
+          istore res
+          
+    loop: iload copia
+          iload i
+          if_icmpeq return
+
+          //Se ancora nel ciclo, esegue mul = mul + a
+          iload a
+          iload res
+          iadd
+          istore res
+          iinc i 1
+          goto loop
+  return: iload res
+          ireturn 
+
+.end-method
