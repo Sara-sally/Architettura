@@ -1,0 +1,64 @@
+Riceve come parametri tre interi X,Y,Z e restituisce l'ampiezza del minimo intervallo di valori interi che contiene X,Y,Z. Ad esempio, con parametri 5,2,8
+l'intervallo cercato è [2,8], che contiene 7 interi. Con parametri attuali -2,10,-5 e che scriva il risutato in result 
+.constant
+objref 0xCAFE
+.end-constant
+
+.main
+    .var
+    result
+    .end-var
+
+    LDC_W objref
+    bipush -2
+    bipush 10
+    bipush -5
+    invokevirtual intrange
+    istore result
+    halt
+.end-main
+
+.method intrange(x,y,z)
+.var
+    max
+    min
+    cont
+.end-var
+    bipush 0
+    istore cont
+    LDC_W objref
+    iload x
+    iload y
+    iload z
+    invokevirtual maxtrenumeri
+    istore max
+    
+.end-method
+
+method maxtrenumeri(a,b,c)
+.var
+massimo
+.end-var
+            iload a
+            iload b
+            isub
+            iflt falsemax
+            iload x
+            iload z
+            isub
+            iflt maxc
+            iload a
+            istore massimo
+            goto finemax
+  falsemax: iload b
+            iload c
+            isub
+            iflt maxc
+            iload b
+            istore massimo
+            goto finemax
+      maxc: iload c
+            istore massimo
+   finemax: iload massimo
+            ireturn
+.end-method
