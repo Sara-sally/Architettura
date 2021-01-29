@@ -1,0 +1,12 @@
+Sostituisce ultimo e penultimo elemento sulla cima dello stack con la somma degli interi tra loro compresi, estremi inclusi. Si supponga che penultimo elemento sia sempre minore o
+uguale all'ultimo (da non verificare). Es: se stack ha 7 3 6 5... dopo l'esecuzione avremo 25 6 5...
+
+sumbtw1 MAR=SP=SP-1; rd
+sumbtw2 OPC=TOS
+sumbtw3 H=MDR
+sumbtw4 OPC=OPC-H
+sumbtw5 Z = OPC; if (Z) goto sumbtw9; else goto sumbtw6
+sumbtw6 OPC=OPC-1
+sumbtw7 MDR=MDR+1
+sumbtw8 H=H+MDR; goto sumbtw
+sumbtw9 TOS=H; wr; goto Main1
