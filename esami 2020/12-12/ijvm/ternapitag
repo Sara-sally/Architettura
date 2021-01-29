@@ -73,8 +73,8 @@ objref 0xCAFE
           iload i
           if_icmpeq return
 
-          //Se ancora nel ciclo, esegue mul = mul + a
-          iload a
+          //Se ancora nel ciclo, esegue res = res + n
+          iload n
           iload res
           iadd
           istore res
