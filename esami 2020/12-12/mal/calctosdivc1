@@ -1,0 +1,12 @@
+Calcoli la divisione intera tra l'elemento in cima allo stack e la prima costante definita (a scostamento 0 rispetto alla base della costant pool). Il valore della divisione
+dovrà sostituire la parola in cima allo stack. Es: costante=2 e stack con valori 9 1 5 7... dopo l'esecuzione lo stack sarà 4 1 5 7...
+
+calctosdivc11 H=TOS
+calctosdivc12 MAR=CPP; rd
+calctosdivc13 OPC = 0
+calctosdivc14 H=MDR-H
+calctosdivc15 N=-H; if (N) goto calctosdivc16; else goto calctosdivc18
+calctosdivc16 H=H+MDR
+calctosdivc17 OPC=OPC+1; goto calctosdivc15
+calctosdivc18 MAR=SP
+calctosdivc19 TOS=MDR=OPC; wr; goto Main1
