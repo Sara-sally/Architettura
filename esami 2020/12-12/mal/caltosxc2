@@ -1,0 +1,9 @@
+Calcola il prodotto dell'elemento in cima allo stack con la seconda costante definita (a scostamento 1 rispetto alla constant pool). Il valore calcolato dovrà sostituire il 
+contenuto corrente in cima allo stack. Es: seconda costante è 3 mentre lo stack è 2 1 4 9... dopo l'esecuzione sarà 6 1 4 9...
+
+caltosxc21 MAR=CPP+1; rd
+caltosxc22 H=TOS
+caltosxc23 OPC=MDR
+caltosxc24 Z = OPC = OPC -1; if (Z) goto caltosxc25 ; else goto caltosxc26
+caltosxc25 TOS = H + TOS; goto caltosxc24
+caltosxc26 MAR = SP; wr; goto Main1
