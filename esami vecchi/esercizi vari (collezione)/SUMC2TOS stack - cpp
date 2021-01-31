@@ -1,5 +1,5 @@
 Scrivere il codice MIC1 di una nuova istruzione sumc2tos SENZA OPERANDI che somma il valore presente 
-sulla cima dello stack con la seconda costante definita (a scostamento 0 rispetto alla base della 
+sulla cima dello stack con la seconda costante definita (a scostamento 1 rispetto alla base della 
 constant pool). Il valore calcolato dovrà SOSTITUIRE il contenuto corrente in cima alla stack.
 
 sumc2tos1   MAR = CPP + 1; rd
