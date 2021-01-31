@@ -1,5 +1,4 @@
-Si scriva il codice MIC1 di una nuova istruzione con operando di lunghezza un byte RESETNVAR byte che 
-memorizzi il valore 0 nelle prime byte variabili locali. 
+Si scriva il codice MIC1 di una nuova istruzione con operando di lunghezza un byte RESETNVAR byte che memorizzi il valore 0 nelle prime byte variabili locali. 
 
 resetnvar1    OPC = MBRU;
 resetnvar2    PC = PC + 1; fetch
