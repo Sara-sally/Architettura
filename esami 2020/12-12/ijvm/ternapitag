@@ -24,7 +24,6 @@ objref 0xCAFE
   squarex
   squarey
   squarez
-  sum
   .end.var
   
         LDC_W objref
@@ -57,18 +56,15 @@ objref 0xCAFE
 
 .method square(n)
   .var
-  copia
   res
   i
   .end-var
-          iload n
-          istore copia
-          bipush 1
+          bipush 0
           istore i
           bipush 0
           istore res
           
-    loop: iload copia
+    loop: iload n
           iload i
           if_icmpeq return
 
