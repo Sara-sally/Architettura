@@ -24,8 +24,6 @@ objref 0xCAFE
         min
         cont
     .end-var
-                bipush 0
-                istore cont
                 LDC_W objref
                 iload x
                 iload y
@@ -72,20 +70,20 @@ method maxtrenumeri(a,b,c)
             iload b
             isub
             iflt falsemax
-            iload x
-            iload z
-            isub
-            iflt maxc
-            iload a
-            istore massimo
-            goto finemax
-  falsemax: iload b
+            iload b
             iload c
             isub
             iflt maxc
             iload b
             istore massimo
             goto finemax
+  falsemax: iload a
+            iload c
+            isub
+            iflt maxc
+            iload a
+            istore massimo
+            goto finemax             
       maxc: iload c
             istore massimo
    finemax: iload massimo
